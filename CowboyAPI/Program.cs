@@ -1,4 +1,8 @@
 
+using CowboyAPI.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+
 namespace CowboyAPI
 {
     public class Program
@@ -9,7 +13,17 @@ namespace CowboyAPI
 
             // Add services to the container.
 
+            // Register the AppSettings configuration section
+            builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
             builder.Services.AddControllers();
+
+
+            // Add in-memory DbContext
+            builder.Services.AddDbContext<CowboyDbContext>(options => options.UseInMemoryDatabase(databaseName: "Cowboys"));
+
+            //DataGenerator.Initialize(builder.Services.BuildServiceProvider());
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
