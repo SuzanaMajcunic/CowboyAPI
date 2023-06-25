@@ -1,0 +1,1058 @@
+{
+	"info": {
+		"_postman_id": "238b4cbe-d90d-4957-abde-9110763a4823",
+		"name": "CowboyAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28166864"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/cowboys/getAll",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"cowboys",
+						"getAll"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "All Cowboys",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/getAll",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"getAll"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "735"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:14:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Mckenzie Von\",\n            \"address\": \"155 Larkin Lodge Apt. 725\\nHeathcoteland, MN 22838\",\n            \"height\": 150,\n            \"hair\": \"Curly, Black\",\n            \"birthData\": \"1971-03-27\",\n            \"firearm\": {\n                \"id\": 1,\n                \"name\": \"Shotgun\",\n                \"bulletsMaxNumber\": 17,\n                \"bulletsLeft\": 17\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Hadley Simonis\",\n            \"address\": \"725 Natasha Isle Suite 037\\nWest Sophiastad, ND 16873\",\n            \"height\": 161,\n            \"hair\": \"Straight, Auburn\",\n            \"birthData\": \"1962-08-16\",\n            \"firearm\": {\n                \"id\": 2,\n                \"name\": \"Rifle\",\n                \"bulletsMaxNumber\": 18,\n                \"bulletsLeft\": 18\n            }\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Bertha Lynch DVM\",\n            \"address\": \"51670 Rempel Springs Apt. 727\\nJoeyland, RI 19385\",\n            \"height\": 206,\n            \"hair\": \"Wavy, Brown\",\n            \"birthData\": \"1979-08-07\",\n            \"firearm\": {\n                \"id\": 3,\n                \"name\": \"Pistol\",\n                \"bulletsMaxNumber\": 16,\n                \"bulletsLeft\": 16\n            }\n        }\n    ],\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/cowboys/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"cowboys",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cowboy 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "267"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:14:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Mckenzie Von\",\n        \"address\": \"155 Larkin Lodge Apt. 725\\nHeathcoteland, MN 22838\",\n        \"height\": 150,\n        \"hair\": \"Curly, Black\",\n        \"birthData\": \"1971-03-27\",\n        \"firearm\": {\n            \"id\": 1,\n            \"name\": \"Shotgun\",\n            \"bulletsMaxNumber\": 17,\n            \"bulletsLeft\": 17\n        }\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Cowboy NotFound",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"4"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:17:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"success\": false,\n    \"message\": \"Cowboy (ID:4) not found.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/cowboys/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"cowboys",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:17:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Delete NotFound",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"4"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:18:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"success\": false,\n    \"message\": \"Cowboy (ID:4) not found.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/cowboys/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"cowboys",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cowboy 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "267"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:13:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Mckenzie Von\",\n        \"address\": \"155 Larkin Lodge Apt. 725\\nHeathcoteland, MN 22838\",\n        \"height\": 150,\n        \"hair\": \"Curly, Black\",\n        \"birthData\": \"1971-03-27\",\n        \"firearm\": {\n            \"id\": 1,\n            \"name\": \"Shotgun\",\n            \"bulletsMaxNumber\": 17,\n            \"bulletsLeft\": 17\n        }\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Cowboy 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "274"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:13:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Hadley Simonis\",\n        \"address\": \"725 Natasha Isle Suite 037\\nWest Sophiastad, ND 16873\",\n        \"height\": 161,\n        \"hair\": \"Straight, Auburn\",\n        \"birthData\": \"1962-08-16\",\n        \"firearm\": {\n            \"id\": 2,\n            \"name\": \"Rifle\",\n            \"bulletsMaxNumber\": 18,\n            \"bulletsLeft\": 18\n        }\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Cowboy 3",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "268"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:14:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Bertha Lynch DVM\",\n        \"address\": \"51670 Rempel Springs Apt. 727\\nJoeyland, RI 19385\",\n        \"height\": 206,\n        \"hair\": \"Wavy, Brown\",\n        \"birthData\": \"1979-08-07\",\n        \"firearm\": {\n            \"id\": 3,\n            \"name\": \"Pistol\",\n            \"bulletsMaxNumber\": 16,\n            \"bulletsLeft\": 16\n        }\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Patch",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"operationType\": 0,\r\n    \"path\": \"/Name\",\r\n    \"op\": \"replace\",\r\n    \"from\": \"\",\r\n    \"value\": \"Bob\"\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7098/api/cowboys/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"cowboys",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Patch Name changed",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"operationType\": 0,\r\n    \"path\": \"/Name\",\r\n    \"op\": \"replace\",\r\n    \"from\": \"\",\r\n    \"value\": \"Bob\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7098/api/cowboys/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"cowboys",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "258"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:20:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Bob\",\n        \"address\": \"155 Larkin Lodge Apt. 725\\nHeathcoteland, MN 22838\",\n        \"height\": 150,\n        \"hair\": \"Curly, Black\",\n        \"birthData\": \"1971-03-27\",\n        \"firearm\": {\n            \"id\": 1,\n            \"name\": \"Shotgun\",\n            \"bulletsMaxNumber\": 17,\n            \"bulletsLeft\": 17\n        }\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ReloadTheGun",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/Firearm/ReloadTheGun/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"Firearm",
+						"ReloadTheGun",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ReloadTheGun OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/Firearm/ReloadTheGun/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"Firearm",
+								"ReloadTheGun",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:20:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": true,\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Cowboy NotFound",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/Firearm/ReloadTheGun/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"Firearm",
+								"ReloadTheGun",
+								"4"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:21:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": false,\n    \"success\": false,\n    \"message\": \"Cowboy (ID:4) not found.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ShootTheGun",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/Firearm/ShootTheGun/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"Firearm",
+						"ShootTheGun",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ShootTheGun OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/Firearm/ShootTheGun/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"Firearm",
+								"ShootTheGun",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:21:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": true,\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "No more bullets",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/Firearm/ShootTheGun/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"Firearm",
+								"ShootTheGun",
+								"1"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:22:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": false,\n    \"success\": false,\n    \"message\": \"Cowboy (ID:1) has no more bullets left.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Combat",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{XApiKey}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "XApiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7098/api/combat/combat?cowboyOneId=1&cowboyTwoId=2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7098",
+					"path": [
+						"api",
+						"combat",
+						"combat"
+					],
+					"query": [
+						{
+							"key": "cowboyOneId",
+							"value": "1"
+						},
+						{
+							"key": "cowboyTwoId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cowboy No bullets",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/combat/combat?cowboyOneId=1&cowboyTwoId=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"combat",
+								"combat"
+							],
+							"query": [
+								{
+									"key": "cowboyOneId",
+									"value": "1"
+								},
+								{
+									"key": "cowboyTwoId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:22:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"success\": false,\n    \"message\": \"Cowboy(ID:1) has no bullets left. Reload the gun.\"\n}"
+				},
+				{
+					"name": "Combat OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/combat/combat?cowboyOneId=1&cowboyTwoId=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"combat",
+								"combat"
+							],
+							"query": [
+								{
+									"key": "cowboyOneId",
+									"value": "1"
+								},
+								{
+									"key": "cowboyTwoId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:22:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": \"The second cowboy won with ratio 9:5.\",\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Cowboy NotFound",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7098/api/combat/combat?cowboyOneId=1&cowboyTwoId=3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7098",
+							"path": [
+								"api",
+								"combat",
+								"combat"
+							],
+							"query": [
+								{
+									"key": "cowboyOneId",
+									"value": "1"
+								},
+								{
+									"key": "cowboyTwoId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Jun 2023 23:23:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"success\": false,\n    \"message\": \"Cowboy(ID:3) not found.\"\n}"
+				}
+			]
+		}
+	]
+}
