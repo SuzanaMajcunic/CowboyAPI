@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cowboy.Repository.Models
+﻿namespace Cowboy.Repository.Models
 {
     public class CowboyModel
     {

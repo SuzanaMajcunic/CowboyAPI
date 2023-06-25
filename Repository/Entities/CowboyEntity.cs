@@ -1,10 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cowboy.Repository.Entities
 {
@@ -12,10 +7,15 @@ namespace Cowboy.Repository.Entities
     {
         public int Id { get; set; }
 
-        [StringLength(200, MinimumLength = 2)]
+        [Required]
+        [StringLength(100, MinimumLength = 2)]
         public required string Name { get; set; }
+
+        [StringLength(200, MinimumLength = 2)]
         public string? Address { get; set; }
+
         public int Height { get; set; }
+
         public string? Hair { get; set; }
 
         [JsonProperty("birth_data")]

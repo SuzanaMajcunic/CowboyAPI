@@ -1,7 +1,6 @@
 ﻿using Cowboy.Repository.Entities;
 using Cowboy.Repository.Models;
 using Microsoft.Extensions.Options;
-using System.Text.Json.Serialization;
 
 namespace Cowboy.Services.Clients
 {

@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cowboy.Services\Cowboy.Services.csproj" />
-    <ProjectReference Include="..\Repository\Cowboy.Repository.csproj" />
   </ItemGroup>
 
 </Project>

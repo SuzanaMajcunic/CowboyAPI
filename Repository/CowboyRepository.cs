@@ -1,7 +1,6 @@
 ﻿using Cowboy.Repository.Entities;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Cowboy.Repository
 {

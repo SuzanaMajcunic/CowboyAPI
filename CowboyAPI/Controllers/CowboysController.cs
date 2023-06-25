@@ -11,7 +11,7 @@ namespace CowboyAPI.Controllers
     {
         private readonly ICowboyService _service;
 
-        public CowboysController(ICowboyService service/*, IOptions<AppSettings> options*/)
+        public CowboysController(ICowboyService service)
         {
             _service = service;
         }
@@ -43,7 +43,7 @@ namespace CowboyAPI.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError, cowboy);
         }
 
-        //// POST: api/Cowboys/Create
+        // POST: api/Cowboys/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create()
         {

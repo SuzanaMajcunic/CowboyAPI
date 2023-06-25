@@ -7,7 +7,6 @@ namespace Cowboy.Repository
     {
         public CowboyDbContext(DbContextOptions<CowboyDbContext> options) : base(options)
         {
-
         }
 
         public DbSet<CowboyEntity> Cowboys { get; set; }
