@@ -1,10 +1,7 @@
-﻿using CowboyAPI.Clients;
-using CowboyAPI.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Cowboy.Repository.Models;
+using Cowboy.Services;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using System.Linq;
 
 namespace CowboyAPI.Controllers
 {
@@ -12,25 +9,24 @@ namespace CowboyAPI.Controllers
     [ApiController]
     public class CowboysController : ControllerBase
     {
-        private CowboyDbContext _context;
-        private CowboyClient _client;
+        private readonly ICowboyService _service;
 
-        public CowboysController(CowboyDbContext context, IOptions<AppSettings> options)
+        public CowboysController(ICowboyService service/*, IOptions<AppSettings> options*/)
         {
-            _context = context;
-            _client = new CowboyClient(options);
+            _service = service;
         }
 
         // GET: api/Cowboys/GetAll
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var cowboys = await _context.Cowboys.ToListAsync();
-            if (cowboys?.Any() ?? false)
+            var cowboys = await _service.GetAllCowboysAsync();
+            if (cowboys?.Success ?? false)
             {
-                return Ok(cowboys);                
+                if(cowboys.Data?.Any() ?? false) return Ok(cowboys);
+                else return NoContent();
             }
-            return NoContent();
+            return StatusCode(StatusCodes.Status500InternalServerError, cowboys);
         }
 
 
@@ -38,60 +34,59 @@ namespace CowboyAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var cowboy = await _context.Cowboys.FindAsync(id);
-            if (cowboy == null)
+            var cowboy = await _service.GetCowboyByIdAsync(id);
+            if (cowboy?.Success ?? false)
             {
-                return NotFound(new ApiResult<Cowboy>($"Cowboy (ID:{id}) not found."));
+                if (cowboy.Data != null) return Ok(cowboy);
+                else return NoContent();
             }
-            return Ok(cowboy);
+            return StatusCode(StatusCodes.Status500InternalServerError, cowboy);
         }
 
-        // GET: api/Cowboys/Create
+        //// POST: api/Cowboys/Create
         [HttpPost("Create")]
         public async Task<IActionResult> Create()
         {
-            try
+            var cowboy = await _service.CreateCowboyAsync();
+
+            if (cowboy?.Success ?? false)
             {
-                var newCowboy = _client.GetCowboy()?.Result;
-
-                if(newCowboy == null) { return BadRequest(new ApiResult<Cowboy>($"External API error on creating a new cowboy record.")); }
-                var created = await _context.Cowboys.AddAsync(newCowboy);
-                _context.SaveChanges();
-
-                return CreatedAtAction(nameof(Create), new ApiResult<Cowboy>(created?.Entity));
+                if (cowboy.Data != null) return Ok(cowboy);
+                else return NoContent();
             }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                new ApiResult<Cowboy>("Error creating new cowboy record."));
-            } 
+            return StatusCode(StatusCodes.Status500InternalServerError, cowboy);
         }
 
         // DELETE: api/Cowboys/1
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            try
+            if (id <= 0) return BadRequest(new ServiceResponse<CowboyModel>($"Invalid request Id.", false));
+
+            var response = await _service.DeleteCowboyAsync(id);
+
+            if (response?.Success ?? false)
             {
-                if (id <= 0) return BadRequest(new ApiResult<Cowboy>($"Invalid request Id."));
-
-                var toDelete = await _context.Cowboys.FindAsync(id);
-
-                if (toDelete == null) return NotFound(new ApiResult<Cowboy>($"Cowboy (ID:{id}) not found."));
-
-                _context.Cowboys.Remove(toDelete);
-
-                return Ok(new ApiResult<Cowboy>(toDelete));
-
+                return Ok(new ServiceResponse<CowboyModel>());
             }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                new ApiResult<Cowboy>("Error deleting cowboy record."));
-            }
+            return NotFound(new ServiceResponse<CowboyModel>($"Cowboy (ID:{id}) not found.", false));
         }
 
-        // Patch cowboy
+        // PATCH: api/Cowboys/1
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> Patch([FromRoute] int id, [FromBody] JsonPatchDocument cowboyDocument)
+        {
+            if (id <= 0) return BadRequest(new ServiceResponse<CowboyModel>($"Invalid request Id.", false));
+
+            var updatedCowboy = await _service.UpdateCowboyPatchAsync(id, cowboyDocument);
+
+            if (updatedCowboy?.Success ?? false)
+            {
+                return Ok(updatedCowboy);
+            }
+            return NotFound(new ServiceResponse<CowboyModel>($"Cowboy (ID:{id}) not found.", false));
+        }
+
 
         // Shoot the gun
         // Reload the gun

@@ -1,7 +1,10 @@
-
-using CowboyAPI.Models;
+using AutoMapper;
+using Cowboy.API.DTO;
+using Cowboy.Repository;
+using Cowboy.Repository.Models;
+using Cowboy.Services;
+using Cowboy.Services.Clients;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 
 namespace CowboyAPI
 {
@@ -16,13 +19,29 @@ namespace CowboyAPI
             // Register the AppSettings configuration section
             builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
-            builder.Services.AddControllers();
-
+            builder.Services.AddControllers()
+                .AddNewtonsoftJson();
 
             // Add in-memory DbContext
             builder.Services.AddDbContext<CowboyDbContext>(options => options.UseInMemoryDatabase(databaseName: "Cowboys"));
 
-            //DataGenerator.Initialize(builder.Services.BuildServiceProvider());
+            // Provide CowboyRepository
+            builder.Services.AddScoped<ICowboyRepository, CowboyRepository>();
+
+            // AutoMapper
+            builder.Services.AddAutoMapper(typeof(Program));
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            builder.Services.AddSingleton(mapper);
+
+            // Register CowboyService
+            builder.Services.AddScoped<ICowboyService, CowboyService>();
+
+            // Register CowboyClient
+            builder.Services.AddScoped<ICowboyClient, CowboyClient>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

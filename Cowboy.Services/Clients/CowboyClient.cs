@@ -1,10 +1,11 @@
-﻿using CowboyAPI.Models;
+﻿using Cowboy.Repository.Entities;
+using Cowboy.Repository.Models;
 using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
 
-namespace CowboyAPI.Clients
+namespace Cowboy.Services.Clients
 {
-    public class CowboyClient
+    public class CowboyClient : ICowboyClient
     {
         private readonly AppSettings _appSettings;
 
@@ -13,19 +14,19 @@ namespace CowboyAPI.Clients
             _appSettings = options.Value;
         }
 
-        public async Task<Cowboy?> GetCowboy()
+        public async Task<CowboyEntity?> GetCowboyAsync()
         {
-            Cowboy? result = null;
+            CowboyEntity? result = null;
 
             using (var client = new HttpClient())
             {
                 var response = await client.GetAsync(_appSettings.DataProviderAPI);
 
-                if(response?.IsSuccessStatusCode ?? false)
+                if (response?.IsSuccessStatusCode ?? false)
                 {
                     var resultString = await response.Content.ReadAsStringAsync();
 
-                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<Cowboy>(resultString);
+                    result = Newtonsoft.Json.JsonConvert.DeserializeObject<CowboyEntity>(resultString);
                 }
             }
 

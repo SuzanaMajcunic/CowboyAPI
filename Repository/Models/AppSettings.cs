@@ -1,4 +1,4 @@
-﻿namespace CowboyAPI.Models
+﻿namespace Cowboy.Repository.Models
 {
     public class AppSettings
     {
