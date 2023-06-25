@@ -1,5 +1,6 @@
 using AutoMapper;
 using Cowboy.API.DTO;
+using Cowboy.API.Middleware;
 using Cowboy.Repository;
 using Cowboy.Repository.Models;
 using Cowboy.Services;
@@ -60,6 +61,8 @@ namespace CowboyAPI
 
             app.UseAuthorization();
 
+            // Use API Key authorization
+            app.UseMiddleware<ApiKeyMiddleware>();
 
             app.MapControllers();
 
