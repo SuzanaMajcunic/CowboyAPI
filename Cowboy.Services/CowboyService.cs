@@ -36,7 +36,7 @@ namespace Cowboy.Services
             var cowboy = await _repository.GetCowboyAsync(id);
             if (cowboy == null)
             {
-                return new ServiceResponse<CowboyModel>($"Cowboy (ID:{id}) not found.", true);
+                return new ServiceResponse<CowboyModel>($"Cowboy (ID:{id}) not found.", false);
             }
             return new ServiceResponse<CowboyModel>(_mapper.Map<CowboyModel>(cowboy));
         }

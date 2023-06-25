@@ -38,8 +38,10 @@ namespace CowboyAPI
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
-            // Register CowboyService
+            // Register Data Services
             builder.Services.AddScoped<ICowboyService, CowboyService>();
+            builder.Services.AddScoped<IFirearmService, FirearmService>();
+            builder.Services.AddScoped<ICombatService, CombatService>();
 
             // Register CowboyClient
             builder.Services.AddScoped<ICowboyClient, CowboyClient>();

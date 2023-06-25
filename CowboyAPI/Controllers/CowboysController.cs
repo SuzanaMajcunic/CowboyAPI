@@ -18,7 +18,7 @@ namespace CowboyAPI.Controllers
 
         // GET: api/Cowboys/GetAll
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
             var cowboys = await _service.GetAllCowboysAsync();
             if (cowboys?.Success ?? false)
@@ -32,7 +32,7 @@ namespace CowboyAPI.Controllers
 
         // GET: api/Cowboys/1
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
             var cowboy = await _service.GetCowboyByIdAsync(id);
             if (cowboy?.Success ?? false)
@@ -45,7 +45,7 @@ namespace CowboyAPI.Controllers
 
         // POST: api/Cowboys/Create
         [HttpPost("Create")]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> CreateAsync()
         {
             var cowboy = await _service.CreateCowboyAsync();
 
@@ -59,7 +59,7 @@ namespace CowboyAPI.Controllers
 
         // DELETE: api/Cowboys/1
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             if (id <= 0) return BadRequest(new ServiceResponse<CowboyModel>($"Invalid request Id.", false));
 
@@ -74,7 +74,7 @@ namespace CowboyAPI.Controllers
 
         // PATCH: api/Cowboys/1
         [HttpPatch("{id}")]
-        public async Task<IActionResult> Patch([FromRoute] int id, [FromBody] JsonPatchDocument cowboyDocument)
+        public async Task<IActionResult> PatchAsync([FromRoute] int id, [FromBody] JsonPatchDocument cowboyDocument)
         {
             if (id <= 0) return BadRequest(new ServiceResponse<CowboyModel>($"Invalid request Id.", false));
 
@@ -86,10 +86,5 @@ namespace CowboyAPI.Controllers
             }
             return NotFound(new ServiceResponse<CowboyModel>($"Cowboy (ID:{id}) not found.", false));
         }
-
-
-        // Shoot the gun
-        // Reload the gun
-        // Combat
     }
 }
