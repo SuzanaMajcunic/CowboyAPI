@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cowboy.Services
+namespace Cowboy.Services.Interfaces
 {
     public interface IFirearmService
     {

@@ -2,7 +2,7 @@
 using Cowboy.Repository;
 using Cowboy.Repository.Entities;
 using Cowboy.Repository.Models;
-using Cowboy.Services.Clients;
+using Cowboy.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace Cowboy.Services

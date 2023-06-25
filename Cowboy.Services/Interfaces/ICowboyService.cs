@@ -1,7 +1,7 @@
 ﻿using Cowboy.Repository.Models;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace Cowboy.Services
+namespace Cowboy.Services.Interfaces
 {
     public interface ICowboyService
     {

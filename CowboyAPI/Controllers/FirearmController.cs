@@ -1,5 +1,5 @@
 ﻿using Cowboy.Services;
-using Microsoft.AspNetCore.Http;
+using Cowboy.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cowboy.API.Controllers

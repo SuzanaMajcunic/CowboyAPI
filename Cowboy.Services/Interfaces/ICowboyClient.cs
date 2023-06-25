@@ -1,6 +1,6 @@
 ﻿using Cowboy.Repository.Entities;
 
-namespace Cowboy.Services.Clients
+namespace Cowboy.Services.Interfaces
 {
     public interface ICowboyClient
     {

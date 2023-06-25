@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cowboy.Repository;
+using Cowboy.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 
 namespace Cowboy.Services

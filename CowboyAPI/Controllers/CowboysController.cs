@@ -1,5 +1,6 @@
 ﻿using Cowboy.Repository.Models;
 using Cowboy.Services;
+using Cowboy.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 

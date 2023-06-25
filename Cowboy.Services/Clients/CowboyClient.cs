@@ -1,5 +1,6 @@
 ﻿using Cowboy.Repository.Entities;
 using Cowboy.Repository.Models;
+using Cowboy.Services.Interfaces;
 using Microsoft.Extensions.Options;
 
 namespace Cowboy.Services.Clients

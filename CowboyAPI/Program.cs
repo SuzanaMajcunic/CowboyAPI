@@ -5,6 +5,7 @@ using Cowboy.Repository;
 using Cowboy.Repository.Models;
 using Cowboy.Services;
 using Cowboy.Services.Clients;
+using Cowboy.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CowboyAPI

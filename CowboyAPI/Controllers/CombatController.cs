@@ -1,4 +1,5 @@
 ﻿using Cowboy.Services;
+using Cowboy.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cowboy.API.Controllers

@@ -1,25 +1,17 @@
-﻿using AutoMapper;
-using Cowboy.Repository;
+﻿using Cowboy.Repository;
 using Cowboy.Repository.Entities;
-using Cowboy.Services.Clients;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Cowboy.Services.Interfaces;
 
 namespace Cowboy.Services
 {
     public class CombatService : ICombatService
     {
         private readonly ICowboyRepository _repository;
-        private readonly ICowboyService _cowboyService;
         private readonly IFirearmService _firearmService;
 
-        public CombatService(ICowboyRepository repository, ICowboyService cowboyService, IFirearmService firearmService)
+        public CombatService(ICowboyRepository repository, IFirearmService firearmService)
         {
             _repository = repository;
-            _cowboyService = cowboyService;
             _firearmService = firearmService;
         }
         public async Task<ServiceResponse<string>> CombatAsync(int cowboyOneId, int cowboyTwoId)
